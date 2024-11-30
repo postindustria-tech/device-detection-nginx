@@ -42,7 +42,7 @@ try {
         Write-Output "Running full NGINX unit tests against NGINX Plus"
         # As we're not using the makefile, we need to set the environment variables ourselves
         $env:TEST_NGINX_BINARY="/usr/sbin/nginx"
-        $env:TEST_NGINX_GLOBALS="load_module $RepoPath/build/modules/ngx_http_51D_module.so;"
+        $env:TEST_NGINX_GLOBALS="mgmt {license_token /etc/nginx/license.jwt;} load_module $RepoPath/build/modules/ngx_http_51D_module.so;"
         $env:TEST_NGINX_GLOBALS_HTTP="51D_file_path $RepoPath/device-detection-cxx/device-detection-data/TAC-HashV41.hash;"
         prove --formatter TAP::Formatter::JUnit -v tests/51degrees.t tests/nginx-tests :: TAC-HashV41.hash > $RepoPath/test-results/unit/$($Name)_Full_Plus.xml
         $Passed = $($Passed -and $LASTEXITCODE -eq 0)

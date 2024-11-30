@@ -28,7 +28,7 @@ Write-Output $NginxKey >> $RepoPath/nginx-repo.key
 Write-Output "Writing NGINX Plus repo certificate"
 Write-Output $NginxCert >> $RepoPath/nginx-repo.crt
 Write-Output "Writing NGINX Plus Jwt token"
-Write-Output $NginxCert >> $RepoPath/license.jwt
+Write-Output $NginxJwtToken >> $RepoPath/license.jwt
 
 # Pull the evidence files for testing as they are not by default.
 $DataFileDir = [IO.Path]::Combine($RepoPath, "device-detection-cxx", "device-detection-data")

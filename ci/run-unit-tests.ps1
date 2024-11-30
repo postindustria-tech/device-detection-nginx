@@ -42,7 +42,7 @@ try {
         Write-Output "Running full NGINX unit tests against NGINX Plus"
 
         # For mgmt module we need to set permissions to nginx-mgmt-state
-        sudo chmod a+rw /var/lib/nginx/state/nginx-mgmt-state
+        sudo chmod -R a+xrw /var/lib
 
         # As we're not using the makefile, we need to set the environment variables ourselves, and add common path to license_token
         $env:TEST_NGINX_BINARY="/usr/sbin/nginx"
